@@ -10,7 +10,6 @@ const userRouter = require("./routes/user");
 
 //INIT
 const app = express();
-const port = 3000;
 //Middleware
 //Client side->Server side->Client side.
 app.use(express.json());
@@ -39,5 +38,5 @@ mongoose
   });
 
 app.listen(process.env.PORT, "0.0.0.0", () => {
-  console.log(`connected at port number ${port}`);
+  console.log(`connected at port number ${process.env.PORT}`);
 });
