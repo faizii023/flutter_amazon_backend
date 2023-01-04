@@ -1,4 +1,5 @@
 //imports from packages
+require('dotenv').config();
 const express = require("express");
 const mongoose = require("mongoose");
 const adminRouter = require("./routes/admin");
@@ -10,8 +11,6 @@ const userRouter = require("./routes/user");
 //INIT
 const app = express();
 const port = 3000;
-const DB =
-  "mongodb+srv://faizan:Kingstar23@cluster0.ys9jr9y.mongodb.net/?retryWrites=true&w=majority";
 //Middleware
 //Client side->Server side->Client side.
 app.use(express.json());
@@ -25,10 +24,13 @@ app.use(userRouter);
 app.get("/api",  (req, res) => {
   res.send("Server is on");
 });
+console.log("first");
+console.log("Env",process.env.PORT);
+console.log("Second");
 
 //Connections
 mongoose
-  .connect(DB)
+  .connect(process.env.DB)
   .then(() => {
     console.log("Success");
   })
@@ -36,6 +38,6 @@ mongoose
     console.log(e);
   });
 
-app.listen(port, "0.0.0.0", () => {
+app.listen(process.env.PORT, "0.0.0.0", () => {
   console.log(`connected at port number ${port}`);
 });
