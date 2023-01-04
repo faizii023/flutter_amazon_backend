@@ -23,9 +23,6 @@ app.use(userRouter);
 app.get("/api",  (req, res) => {
   res.send("Server is on");
 });
-console.log("first");
-console.log("Env",process.env.PORT);
-console.log("Second");
 
 //Connections
 mongoose
@@ -34,7 +31,8 @@ mongoose
     console.log("Success");
   })
   .catch((e) => {
-    console.log(e);
+    console.log("Error",e);
+    console.log(e.toString());
   });
 
 app.listen(process.env.PORT, "0.0.0.0", () => {
