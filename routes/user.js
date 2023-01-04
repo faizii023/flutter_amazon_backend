@@ -6,6 +6,9 @@ const { Product } = require("../models/product");
 const User = require("../models/user");
 const Order = require("../models/order");
 
+
+
+
 userRouter.post("/api/add-to-cart", auth, async (req, res) => {
   try {
     const { id } = req.body;

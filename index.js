@@ -21,6 +21,11 @@ app.use(adminRouter);
 app.use(productRouter);
 app.use(userRouter);
 
+//Status
+app.get("/api",  (req, res) => {
+  res.send("Server is on");
+});
+
 //Connections
 mongoose
   .connect(DB)
